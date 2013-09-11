@@ -34,6 +34,7 @@ sub main(@){
   run "make", "-j$threads";
   run "cp", "src/stepmania", "../";
   run "cp", "src/GtkModule.so", "../";
+  chdir "../";
 }
 
 sub ffmpegCompile(){
