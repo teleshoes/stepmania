@@ -5,6 +5,7 @@ use warnings;
 sub ffmpegCompile();
 sub run(@);
 
+my $repoDir = "$ENV{HOME}/Code/stepmania";
 my $ffmpegUrl = "http://ffmpeg.org/releases";
 my $ffmpegVersion = "0.10.2";
 my $threads = 8;
@@ -18,6 +19,7 @@ my @ffmpegFlags = qw(
 );
 
 sub main(@){
+  chdir $repoDir;
   run "./autogen.sh";
 
   ffmpegCompile();
