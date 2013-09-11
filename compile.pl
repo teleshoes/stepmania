@@ -6,6 +6,8 @@ sub ffmpegCompile();
 sub run(@);
 
 my $repoDir = "$ENV{HOME}/Code/stepmania";
+my $installDir = "$ENV{HOME}/Desktop/Games/stepmania";
+
 my $ffmpegUrl = "http://ffmpeg.org/releases";
 my $ffmpegVersion = "0.10.2";
 my $threads = 8;
@@ -35,6 +37,25 @@ sub main(@){
   run "cp", "src/stepmania", "../";
   run "cp", "src/GtkModule.so", "../";
   chdir "../";
+
+  install();
+}
+
+sub install(){
+  my $buildName = "build-" . time;
+  my $buildDir = "$installDir/$buildName";
+  my @excludes = map {"--exclude=$_"} qw(
+    .git/
+    _assets/ _build/ extern/ Program/ src/ Utils/
+    ffmpeg-*/
+    ffmpeg-*.tar.bz2
+    Songs/ Themes/ Xcode/
+  );
+  run "mkdir", "-p", $installDir;
+  run "rsync", "-avP", @excludes, "./", $buildDir;
+  run "mkdir", "-p", "$buildDir/Songs";
+  run "rm", "-f", "$installDir/latest";
+  run "ln", "-s", $buildName, "$installDir/latest";
 }
 
 sub ffmpegCompile(){
