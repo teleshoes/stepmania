@@ -75,7 +75,7 @@ sub ffmpegCompile(){
 sub run(@){
   print "@_\n";
   system @_;
-  die "$_ failed\n" if $? != 0;
+  die "@_ failed\n" if $? != 0;
 }
 
 &main(@ARGV);
