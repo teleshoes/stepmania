@@ -6,6 +6,7 @@ sub run(@);
 
 my $repoDir = "$ENV{HOME}/Code/stepmania";
 my $installDir = "$ENV{HOME}/Desktop/Games/stepmania";
+my $configDir = "$ENV{HOME}/.stepmania-5.0";
 
 my $threads = 8;
 
@@ -30,6 +31,7 @@ sub install(){
   );
   run "mkdir", "-p", $installDir;
   run "rsync", "-avP", @excludes, "./", $buildDir;
+  run "ln", "-s", "$configDir/Songs", "$buildDir/Songs";
   run "mkdir", "-p", "$buildDir/Songs";
   run "rm", "-f", "$installDir/latest";
   run "ln", "-s", $buildName, "$installDir/latest";
