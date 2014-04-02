@@ -39,7 +39,7 @@ sub install(){
   my $buildDir = "$installDir/$buildName";
   my @excludes = map {"--exclude=$_"} qw(
     .git/
-    _assets/ extern/ Program/ src/ Utils/
+    _assets/ extern/ Program/ Utils/
     ffmpeg-*/
     ffmpeg-*.tar.bz2
     Songs/ Themes/ Xcode/
