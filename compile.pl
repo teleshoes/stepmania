@@ -26,17 +26,10 @@ sub main(@){
 
   ffmpegCompile();
 
-  my $buildDir = "_build";
-  run "mkdir", "-p", $buildDir;
-  chdir $buildDir;
-
-  run "../configure", "--with-ffmpeg",
-    "--with-static-ffmpeg=../ffmpeg-$ffmpegVersion/_inst";
+  run "./configure", "--with-ffmpeg",
+    "--with-static-ffmpeg=./ffmpeg-$ffmpegVersion/_inst";
 
   run "make", "-j$threads";
-  run "cp", "src/stepmania", "../";
-  run "cp", "src/GtkModule.so", "../";
-  chdir "../";
 
   install();
 }
@@ -46,7 +39,7 @@ sub install(){
   my $buildDir = "$installDir/$buildName";
   my @excludes = map {"--exclude=$_"} qw(
     .git/
-    _assets/ _build/ extern/ Program/ src/ Utils/
+    _assets/ extern/ Program/ src/ Utils/
     ffmpeg-*/
     ffmpeg-*.tar.bz2
     Songs/ Themes/ Xcode/
