@@ -148,5 +148,21 @@ t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd(zoomy,0.8;diffusealpha,0;sleep,0.7;linear,0.3;diffusealpha,1;zoomy,1);
 		OffCommand=cmd(linear,0.25;diffusealpha,0;zoomy,0.8);
 	};
+	-- Far-left
+	CreatePaneDisplayGraph( iPN, "S", 'RadarCategory_Stream' ) .. {
+		InitCommand=cmd(x,-200;y,-14);
+	};
+	CreatePaneDisplayGraph( iPN, "V", 'RadarCategory_Voltage' ) .. {
+		InitCommand=cmd(x,-200;y,-14+12);
+	};
+	CreatePaneDisplayGraph( iPN, "A", 'RadarCategory_Air' ) .. {
+		InitCommand=cmd(x,-200;y,-14+12*2);
+	};
+	CreatePaneDisplayGraph( iPN, "F", 'RadarCategory_Freeze' ) .. {
+		InitCommand=cmd(x,-200;y,-14+12*3);
+	};
+	CreatePaneDisplayGraph( iPN, "C", 'RadarCategory_Chaos' ) .. {
+		InitCommand=cmd(x,-200;y,-14+12*4);
+	};
 };
 return t;
