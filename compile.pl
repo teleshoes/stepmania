@@ -27,7 +27,7 @@ sub install(){
   my @excludes = map {"--exclude=$_"} qw(
     .git/
     _assets/ extern/ Program/ Utils/
-    Songs/ Themes/ Xcode/
+    Songs/ Xcode/
   );
   run "mkdir", "-p", $installDir;
   run "rsync", "-avP", @excludes, "./", $buildDir;
