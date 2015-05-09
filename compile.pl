@@ -12,9 +12,8 @@ my $threads = 8;
 
 sub main(@){
   chdir $repoDir;
-  run "./autogen.sh";
 
-  run "./configure", "--with-ffmpeg";
+  run "cmake", ".";
 
   run "make", "-j$threads";
 
