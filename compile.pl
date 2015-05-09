@@ -13,7 +13,7 @@ my $threads = 8;
 sub main(@){
   chdir $repoDir;
 
-  run "cmake", "-DWITH_CRYSTALHD_DISABLED=ON", ".";
+  run "cmake", "-DWITH_LIBVA=ON", "-DWITH_CRYSTALHD_DISABLED=ON", ".";
 
   run "make", "-j$threads";
 
