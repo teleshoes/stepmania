@@ -5,7 +5,7 @@ use warnings;
 sub run(@);
 
 my $repoDir = "$ENV{HOME}/Code/stepmania";
-my $installDir = "$ENV{HOME}/Desktop/Games/stepmania";
+my $installDir = "$ENV{HOME}/Games/stepmania";
 my $configDir = "$ENV{HOME}/.stepmania-5.0";
 
 my $threads = 8;
