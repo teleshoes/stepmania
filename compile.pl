@@ -13,6 +13,9 @@ my $threads = 8;
 sub main(@){
   chdir $repoDir;
 
+  run "git", "submodule", "init";
+  run "git", "submodule", "update";
+
   run "cmake",
     "-DWITH_LIBVA=ON",
     "-DWITH_CRYSTALHD_DISABLED=ON",
