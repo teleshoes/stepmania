@@ -15,6 +15,8 @@ my @deps = qw(
   libpng-dev libjpeg-dev zlib1g-dev libbz2-dev libogg-dev libvorbis-dev libc6-dev
   yasm libasound-dev libpulse-dev binutils-dev libgtk2.0-dev libmad0-dev libudev-dev
   libva-dev nasm
+
+  libjack-jackd2-dev
 );
 
 sub main(@){
