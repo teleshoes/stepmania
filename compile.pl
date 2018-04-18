@@ -10,8 +10,17 @@ my $configDir = "$ENV{HOME}/.stepmania-5.0";
 
 my $threads = 8;
 
+my @deps = qw(
+  cmake mesa-common-dev libglu1-mesa-dev libglew1.5-dev libxtst-dev libxrandr-dev
+  libpng-dev libjpeg-dev zlib1g-dev libbz2-dev libogg-dev libvorbis-dev libc6-dev
+  yasm libasound-dev libpulse-dev binutils-dev libgtk2.0-dev libmad0-dev libudev-dev
+  libva-dev nasm
+);
+
 sub main(@){
   chdir $repoDir;
+
+  run "sudo", "apt-get", "install", @deps;
 
   run "git", "submodule", "init";
   run "git", "submodule", "sync";
