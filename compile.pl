@@ -14,6 +14,7 @@ sub main(@){
   chdir $repoDir;
 
   run "git", "submodule", "init";
+  run "git", "submodule", "sync";
   run "git", "submodule", "update";
 
   run "cmake",
