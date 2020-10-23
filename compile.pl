@@ -25,9 +25,6 @@ sub main(@){
   run "sudo", "apt-get", "install", @deps;
 
   run "cmake",
-    "-DWITH_LIBVA=ON",
-    "-DWITH_CRYSTALHD_DISABLED=ON",
-    "-DWITH_MINIMAID=OFF",
     ".";
 
   run "make", "-j$threads";
