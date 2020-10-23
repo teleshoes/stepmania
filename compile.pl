@@ -24,10 +24,6 @@ sub main(@){
 
   run "sudo", "apt-get", "install", @deps;
 
-  run "git", "submodule", "init";
-  run "git", "submodule", "sync";
-  run "git", "submodule", "update";
-
   run "cmake",
     "-DWITH_LIBVA=ON",
     "-DWITH_CRYSTALHD_DISABLED=ON",
